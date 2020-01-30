@@ -27,7 +27,7 @@ class Barang_model extends CI_model {
 		$data = [
 			"id_kostumer" => $this->input->post('perusahaan', true),
 	        "id_barang" => $this->input->post('barang', true),
-	        "jumlah" => $this->input->post('jumlah', true)
+	        "jumlah" => $this->input->post('jumlah', true),
 	        "status" => $this->input->post('status', true)
 		];
 
