@@ -19,7 +19,7 @@
 						<select class="custom-select" name="perusahaan" id="perusahaan">
 							<option>- pilih -</option>
 						  <?php foreach($kostumer as $k) { ?>
-						  	<option value="<?= $k[nama_kostumer]; ?>"><?= $k[nama_kostumer]; ?></option>
+						  	<option value="<?= $k['nama_kostumer']; ?>"><?= $k['nama_kostumer']; ?></option>
 						  <?php } ?>
 						</select>
 					</div>
