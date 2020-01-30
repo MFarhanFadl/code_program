@@ -38,16 +38,16 @@
 
 			<?php if( empty($barang) ) : ?>
 				<div class="alert alert-info" role="alert">
-				  Barang tidak ditemukan
+				  Transaksi tidak ditemukan
 				</div>
 			<?php endif; ?>
 
 			<ul class="list-group">
 
-				<?php foreach( $barang as $brg ) : ?>
+				<?php foreach( $transaksi as $trs ) : ?>
 				<li class="list-group-item">
 
-					<?= $brg['nama_barang']; ?>						
+					<?= $trs['id_transaksi']; ?>						
 					
 					<a href="<?= base_url(); ?>Barang/hapus/<?= $brg['id_barang']; ?>" class="badge badge-danger float-right" onclick="return confirm('hapus barang?');">hapus</a>
 

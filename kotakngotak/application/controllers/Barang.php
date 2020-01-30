@@ -13,9 +13,9 @@ class Barang extends CI_Controller {
 	{
 		#$this->load->database(); gunakan jika hanya butuh load database di function ini
 
-		#$this->load->model('Barang_model');
+		#$this->load->model('Barang_model'); gunakan jika hanya butuh load model di fuction ini
 		$jdl['judul'] = 'Data barang';
-		$data['barang'] = $this->Barang_model->getAllBarang();
+		$data['transaksi'] = $this->Barang_model->getallTransaksi();
 		if ($this->input->post('cari')) 
 		{
 			$data['barang'] = $this->Barang_model->cariBarang();
@@ -38,10 +38,10 @@ class Barang extends CI_Controller {
 		$this->load->view('barang/tambah',$data);
 		$this->load->view('template/footer');
 		} else {
-			echo "YEET";
-			#$this->Barang_model->tambahDataBrng();
-			#$this->session->set_flashdata('data', 'Ditambah');
-			#redirect('barang');
+
+			$this->Barang_model->tambahDataTrnsksi();
+			$this->session->set_flashdata('data', 'Ditambah');
+			redirect('barang');
 		}
 
 

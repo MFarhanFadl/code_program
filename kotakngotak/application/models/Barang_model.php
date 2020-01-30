@@ -11,6 +11,11 @@ class Barang_model extends CI_model {
 		return $this->db->get('kostumer')->result_array();
 	}
 
+	public function getallTransaksi()
+	{
+		return $this->db->get('transaksi')->result_array();
+	}
+
 	public function tambahDataBrng()
 	{
 		$data = [
