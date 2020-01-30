@@ -22,6 +22,18 @@ class Barang_model extends CI_model {
 		$this->db->insert('barang', $data);
 	}
 
+	public function tambahDataTrnsksi()
+	{
+		$data = [
+			"id_kostumer" => $this->input->post('perusahaan', true),
+	        "id_barang" => $this->input->post('barang', true),
+	        "jumlah" => $this->input->post('jumlah', true)
+	        "status" => $this->input->post('status', true)
+		];
+
+		$this->db->insert('transaksi', $data);
+	}
+
 	public function hapusDataBrng($no)
 	{
 		$this->db->where('id_barang',$no);	//bisajuga gini

@@ -19,29 +19,29 @@
 						<select class="custom-select" name="perusahaan" id="perusahaan">
 							<option>- pilih -</option>
 						  <?php foreach($kostumer as $k) { ?>
-						  	<option value="<?= $k['nama_kostumer']; ?>"><?= $k['nama_kostumer']; ?></option>
+						  	<option value="<?= $k['id_kostumer']; ?>"><?= $k['nama_kostumer']; ?></option>
 						  <?php } ?>
 						</select>
 					</div>
 
 					<div class="form-group">
 						<label for="barang">Barang</label>
-						<select class="custom-select" name="barang">
-						  <option selected> </option>
-						  <option value="bukalapak">botol</option>
-						  <option value="tokopedia">gelas</option>
-						  <option value="shopee">kertas</option>
+						<select class="custom-select" name="barang" id="barang">
+						  <option selected>- pilih -</option>
+						  <?php foreach($barang as $brg) { ?>
+						  	<option value="<?= $brg['id_barang']; ?>"><?= $brg['nama_barang']; ?></option>
+						  <?php } ?>
 						</select>
 					</div>
 
 					<div class="form-group">
 						<label for="jumlah">Jumlah barang</label>
-						<input type="text" name="jumlah" class="form-control" id="jumlah">
-						<small id="emailHelp" class="form-text text-danger"><?= form_error('barang') ?></small>
+						<input type="text" name="jumlah" class="form-control" id="jumlah" placeholder="masukan jumlah">
+						<small id="emailHelp" class="form-text text-danger"><?= form_error('jumlah') ?></small>
 					</div>	
 
 					<div class="form-group">
-					<input type="hidden" name="status" class="form-control" id="status" value="inbound">	
+					<input type="hidden" name="status" class="form-control" id="status" value="inbound">
 					</div>
 
 					<button type="submit" name="tambah" class="btn btn-primary float-right">Transaksi</button>

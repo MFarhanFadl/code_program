@@ -31,19 +31,18 @@ class Barang extends CI_Controller {
 		$data['kostumer'] = $this->Barang_model->getallKostumer();
 		$data['barang'] = $this->Barang_model->getAllBarang();
 
-		/*$this->form_validation->set_rules('barang', 'Barang', 'required|max_length[255]');
 		$this->form_validation->set_rules('jumlah', 'Jumlah', 'required|numeric|max_length[12]');
-		$this->form_validation->set_rules('deskripsi', 'Diskripsi', 'required');
 
-		if($this->form_validation->run() == FALSE ){*/
+		if($this->form_validation->run() == FALSE ){
 		$this->load->view('template/header', $jdl);
 		$this->load->view('barang/tambah',$data);
 		$this->load->view('template/footer');
-		/*} else {
-			$this->Barang_model->tambahDataBrng();
-			$this->session->set_flashdata('data', 'Ditambah');
-			redirect('barang');
-		}*/
+		} else {
+			echo "YEET";
+			#$this->Barang_model->tambahDataBrng();
+			#$this->session->set_flashdata('data', 'Ditambah');
+			#redirect('barang');
+		}
 
 
 	}
