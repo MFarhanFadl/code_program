@@ -36,7 +36,7 @@
 
 			<h3>Daftar Barang</h3>
 
-			<?php if( empty($barang) ) : ?>
+			<?php if( empty($transaksi) ) : ?>
 				<div class="alert alert-info" role="alert">
 				  Transaksi tidak ditemukan
 				</div>
@@ -49,12 +49,9 @@
 
 					<?= $trs['id_transaksi']; ?>						
 					
-					<a href="<?= base_url(); ?>Barang/hapus/<?= $brg['id_barang']; ?>" class="badge badge-danger float-right" onclick="return confirm('hapus barang?');">hapus</a>
+					<a href="<?= base_url(); ?>Barang/hapus/<?= $trs['id_transaksi']; ?>" class="badge badge-danger float-right" onclick="return confirm('hapus barang?');">hapus</a>
 
-
-					<a href="<?= base_url(); ?>Barang/detail/<?= $brg['id_barang']; ?>" class="badge badge-primary float-right">detail</a>
-
-					<a href="<?= base_url(); ?>Barang/edit/<?= $brg['id_barang']; ?>" class="badge badge-success float-right">edit</a>
+					<a href="<?= base_url(); ?>Barang/edit/<?= $trs['id_transaksi']; ?>" class="badge badge-success float-right">edit</a>
 				</li>
 				<?php endforeach; ?>
 
