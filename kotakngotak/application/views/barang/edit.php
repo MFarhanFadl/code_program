@@ -22,12 +22,6 @@
 							<small id="emailHelp" class="form-text text-danger"><?= form_error('barang') ?></small>
 						</div>	
 
-						  <div class="form-group">
-						    <label for="jumlah">Banyak Barang</label>
-						    <input type="text" name="jumlah" class="form-control" id="jumlah" value="<?= $barang['jumlah'] ?>">
-							<small class="form-text text-danger"><?= form_error('jumlah') ?></small>
-						  </div>
-
 						<div class="form-group">
 							<label for="deskripsi">Deskripsi Barang</label>
 							<input type="text" name="deskripsi" class="form-control" id="deskripsi" value="<?= $barang['deskripsi'] ?>">

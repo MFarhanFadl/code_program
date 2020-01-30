@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mb-5">
 
 	<?php if( $this->session->flashdata('data') ) : ?>
 
@@ -15,14 +15,14 @@
 
 	<?php endif; ?>
 
-	<div class="row mt-3">
+	<div class="row mt-4">
 		<div class="col-md-6">
 			<form action="" method="post">
 
 				<div class="input-group">
 				  <input type="text" class="form-control" placeholder="Cari barang . . ." name="cari">
 				  <div class="input-group-append">
-				    <button class="btn btn-primary" type="submit" >cari</button>
+				    <button class="btn btn-dark" type="submit" >cari</button>
 				  </div>
 				</div>
 
@@ -30,11 +30,6 @@
 		</div>
 	</div>
 
-	<div class="row mt-3">
-		<div class="col-md-6">
-			<a href="<?= base_url(); ?>barang/tambah" class="btn btn-primary">Tambah Barang</a>
-		</div>
-	</div>
 	
 	<div class="row mt-3">
 		<div class="col-md-6">
@@ -66,6 +61,12 @@
 			</ul>
 		</div>
 
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<a href="<?= base_url(); ?>barang/tambah" class="btn btn-dark float-right">Tambah Barang</a>
+		</div>
 	</div>
 
 </div>

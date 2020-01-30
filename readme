@@ -1,4 +1,4 @@
-1. first upload the .sql file in "sql database" folder to the database
+1. first make database named "gudang" upload the .sql file in "sql database" folder to the database
 2. move the "kotakngotak" file to htdocs in xampp
 3. run the xampp controler and start the Apache and MySQL
 4. open your browser and type "http://localhost/kotakngotak/" the aplication address in the url bar

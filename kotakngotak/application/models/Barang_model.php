@@ -6,6 +6,11 @@ class Barang_model extends CI_model {
 		return $this->db->get('barang')->result_array();
 	}
 
+	public function getallKostumer()
+	{
+		return $this->db->get('kostumer')->result_array();
+	}
+
 	public function tambahDataBrng()
 	{
 		$data = [
@@ -28,12 +33,16 @@ class Barang_model extends CI_model {
 		return $this->db->get_where('barang', ['id_barang' => $no])->row_array(); //bisa bikin fungsinya kek gini digabungin
 	}
 
+	public function getDetailKostumerbyNo($no)
+	{
+		return $this->db->get_where('kostumer', ['id_kostumer' => $no])->row_array(); //bisa bikin fungsinya kek gini digabungin
+	}
+
 
 	public function editDataBrng()
 	{
 		$data = [
 			"nama_barang" => $this->input->post('barang', true),
-	        "jumlah" => $this->input->post('jumlah', true),
 	        "deskripsi" => $this->input->post('deskripsi', true)
 		];
 
@@ -45,7 +54,6 @@ class Barang_model extends CI_model {
 	{
 		$keyword = $this->input->post('cari', true);
 		$this->db->like('nama_barang', $keyword);
-		$this->db->or_like('jumlah', $keyword);
 		return $this->db->get('barang')->result_array();
 	}
 
