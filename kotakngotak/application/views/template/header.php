@@ -17,7 +17,7 @@
 
     <title><?php echo $judul ?></title>
   </head>
-  <body class="mb-3">
+  <body class="">
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   	<div class="container ">
@@ -27,9 +27,9 @@
 	  </button>
 	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	    <div class="navbar-nav ml-auto">
-	      <a class="nav-item nav-link" href="<?= base_url(); ?>">Home<span class="sr-only">(current)</span></a>
-	      <a class="nav-item nav-link" href="<?= base_url(); ?>Barang">List Barang</a>
-	      <a class="nav-item nav-link" href="#">Cari Barang</a>
+	      <a class="nav-item nav-link" href="<?= base_url(); ?>Barang">Riwayat transaksi</a>
+	      <a class="nav-item nav-link" href="<?= base_url(); ?>Barang2">Daftar Barang</a>
+        <a class="nav-item nav-link" href="<?= base_url(); ?>Penyimpanan">Daftar Penyimpanan</a>
 	    </div>
 	  </div>
   </div>

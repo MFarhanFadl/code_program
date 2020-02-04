@@ -14,8 +14,12 @@ class Barang extends CI_Controller {
 		#$this->load->database(); gunakan jika hanya butuh load database di function ini
 
 		#$this->load->model('Barang_model'); gunakan jika hanya butuh load model di fuction ini
-		$jdl['judul'] = 'Data barang';
+		$jdl['judul'] = 'Riwayat Transaksi';
 		$data['transaksi'] = $this->Barang_model->getallTransaksi();
+		$data['transaksi2'] = $this->Barang_model->getallTransaksi2();
+		$data['kostumer'] = $this->Barang_model->getallKostumer();
+		$data['barang'] = $this->Barang_model->getAllBarang();
+
 		if ($this->input->post('cari')) 
 		{
 			$data['barang'] = $this->Barang_model->cariBarang();
@@ -27,10 +31,12 @@ class Barang extends CI_Controller {
 
 	public function tambah()
 	{
-		$jdl['judul'] = 'Formulir Tambah Data';
+		$jdl['judul'] = 'Formulir Tambah Barang';
 		$data['kostumer'] = $this->Barang_model->getallKostumer();
 		$data['barang'] = $this->Barang_model->getAllBarang();
 
+		$this->form_validation->set_rules('perusahaan', 'Perusahaan', 'required');
+		$this->form_validation->set_rules('barang', 'Barang', 'required');
 		$this->form_validation->set_rules('jumlah', 'Jumlah', 'required|numeric|max_length[12]');
 
 		if($this->form_validation->run() == FALSE ){
@@ -47,13 +53,35 @@ class Barang extends CI_Controller {
 
 	}
 
-	/*public function hapus($no)
+	public function ambil()
 	{
-		$this->Barang_model->hapusDataBrng($no);
+		$jdl['judul'] = 'Formulir Tambah Barang';
+		$data['kostumer'] = $this->Barang_model->getallKostumer();
+		$data['barang'] = $this->Barang_model->getAllBarang();
+
+		$this->form_validation->set_rules('jumlah', 'Jumlah', 'required|numeric|max_length[12]');
+
+		if($this->form_validation->run() == FALSE ){
+		$this->load->view('template/header', $jdl);
+		$this->load->view('barang/ambil',$data);
+		$this->load->view('template/footer');
+		} else {
+
+			$this->Barang_model->tambahDataTrnsksi2();
+			$this->session->set_flashdata('data', 'Diambil');
+			redirect('barang');
+		}
+
+
+	}
+
+	public function hapus($no)
+	{
+		$this->Barang_model->hapusDataTransaksi($no);
 		$this->session->set_flashdata('data', 'Terhapus');
 		redirect('barang');
 
-	}*/
+	}
 
 	public function detail($no)
 	{
@@ -67,21 +95,24 @@ class Barang extends CI_Controller {
 	public function edit($no)
 	{
 		$jdl['judul'] = 'Formulir Edit Data';
-		$data['barang'] = $this->Barang_model->getDetailbyNo($no);
+		$data['transaksi'] = $this->Barang_model->getDetailTransaksibyNo($no);
+		$data['kostumer'] = $this->Barang_model->getallKostumer();
+		$data['barang'] = $this->Barang_model->getAllBarang();
+		$data['status'] = ['inbound', 'outbound'];
 
-		/*$this->form_validation->set_rules('barang', 'Barang', 'required|max_length[255]');
+
 		$this->form_validation->set_rules('jumlah', 'Jumlah', 'required|numeric|max_length[12]');
-		$this->form_validation->set_rules('deskripsi', 'Diskripsi', 'required');
 
-		if($this->form_validation->run() == FALSE ){*/
+		if($this->form_validation->run() == FALSE ){
 		$this->load->view('template/header', $jdl);
 		$this->load->view('barang/edit', $data);
 		$this->load->view('template/footer');
-		/**} else {
-		*	$this->Barang_model->editDataBrng();
-		*	$this->session->set_flashdata('data', 'Diedit');
-		*	redirect('barang');
-		}**/
+		} else {
+
+			$this->Barang_model->editTransaksi();
+			$this->session->set_flashdata('data', 'Diedit');
+			redirect('barang');
+		}
 
 
 	}

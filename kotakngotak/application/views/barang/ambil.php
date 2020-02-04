@@ -22,7 +22,6 @@
 						  	<option value="<?= $k['id_kostumer']; ?>"><?= $k['nama_kostumer']; ?></option>
 						  <?php } ?>
 						</select>
-						<small id="emailHelp" class="form-text text-danger"><?= form_error('perusahaan') ?></small>
 					</div>
 
 					<div class="form-group">
@@ -33,7 +32,6 @@
 						  	<option value="<?= $brg['id_barang']; ?>"><?= $brg['nama_barang']; ?></option>
 						  <?php } ?>
 						</select>
-						<small id="emailHelp" class="form-text text-danger"><?= form_error('barang') ?></small>
 					</div>
 
 					<div class="form-group">
@@ -43,10 +41,10 @@
 					</div>	
 
 					<div class="form-group">
-					<input type="hidden" name="status" class="form-control" id="status" value="inbound">
+					<input type="hidden" name="status" class="form-control" id="status" value="outbound">
 					</div>
 
-					<button type="submit" name="tambah" class="btn btn-dark float-right">Masukan</button>
+					<button type="submit" name="tambah" class="btn btn-dark float-right">Ambil</button>
 
 					</form>
 

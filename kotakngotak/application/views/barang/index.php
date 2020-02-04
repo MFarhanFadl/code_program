@@ -1,4 +1,4 @@
-<div class="container mb-5">
+<div class="container mt-5 mb-5 pb-5 bg-light">
 
 	<?php if( $this->session->flashdata('data') ) : ?>
 
@@ -14,55 +14,73 @@
 	</div>
 
 	<?php endif; ?>
-
-	<div class="row mt-4">
-		<div class="col-md-6">
-			<form action="" method="post">
-
-				<div class="input-group">
-				  <input type="text" class="form-control" placeholder="Cari barang . . ." name="cari">
-				  <div class="input-group-append">
-				    <button class="btn btn-dark" type="submit" >cari</button>
-				  </div>
-				</div>
-
-			</form>
-		</div>
-	</div>
-
 	
-	<div class="row mt-3">
-		<div class="col-md-6">
+	<div class="row mt-3 mx-auto bg-item" style="width: 100%;">
+		<div class="col-md-6 mx-auto" style="width: 100%;">
 
-			<h3>Daftar Barang</h3>
+			<h3 class="w3-center mt-4 mb-4">Barang Masuk</h3>
 
-			<?php if( empty($transaksi) ) : ?>
-				<div class="alert alert-info" role="alert">
-				  Transaksi tidak ditemukan
-				</div>
-			<?php endif; ?>
+			<table class=" container mx-auto table table-hover table-bordered" style="width: 100%;">
 
-			<ul class="list-group">
-
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">Kode Pelanggan</th>
+			      <th scope="col">Kode Barang</th>
+			      <th scope="col">Jumlah</th>
+			      <th scope="col">Status</th>
+			    </tr>
+			  </thead>
 				<?php foreach( $transaksi as $trs ) : ?>
-				<li class="list-group-item">
-
-					<?= $trs['id_transaksi']; ?>						
+			  <tbody>
+			    <tr>
+			      <td><?= $trs['id_kostumer']; ?></td>
+			      <td><?= $trs['id_barang']; ?></td>
+			      <td><?= $trs['jumlah']; ?></td>
+			      <td><?= $trs['status']; ?></td>
 					
-					<a href="<?= base_url(); ?>Barang/hapus/<?= $trs['id_transaksi']; ?>" class="badge badge-danger float-right" onclick="return confirm('hapus barang?');">hapus</a>
+			    </tr>
+			  </tbody>
+			  	<?php endforeach; ?>
 
-					<a href="<?= base_url(); ?>Barang/edit/<?= $trs['id_transaksi']; ?>" class="badge badge-success float-right">edit</a>
-				</li>
-				<?php endforeach; ?>
+			</table>
 
-			</ul>
+		</div>
+
+		<div class="col-md-6 mx-auto" style="width: 100%;">
+			<table class=" container mx-auto table table-hover table-bordered" 
+			style="width: 100%;">
+			<h3 class="w3-center mt-4 mb-4">Barang Keluar</h3>
+
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">Kode Pelanggan</th>
+			      <th scope="col">Kode Barang</th>
+			      <th scope="col">Jumlah</th>
+			      <th scope="col">Status</th>
+			    </tr>
+			  </thead>
+				<?php foreach( $transaksi2 as $trs2 ) : ?>
+			  <tbody>
+			    <tr>
+			      <td><?= $trs2['id_kostumer']; ?></td>
+			      <td><?= $trs2['id_barang']; ?></td>
+			      <td><?= $trs2['jumlah']; ?></td>
+			      <td><?= $trs2['status']; ?></td>
+					
+			    </tr>
+			  </tbody>
+			  	<?php endforeach; ?>
+
+			</table>
+
 		</div>
 
 	</div>
 
-	<div class="row mt-3">
-		<div class="col-md-6">
-			<a href="<?= base_url(); ?>barang/tambah" class="btn btn-dark float-right">Tambah Barang</a>
+	<div class="row mt-3 w3-center">
+		<div class="col-md-6 mx-auto" style="width:  100%">
+			<a href="<?= base_url(); ?>barang/tambah" class="btn btn-info ">Masukan barang</a>
+			<a href="<?= base_url(); ?>barang/ambil" class="btn btn-info ">Ambil barang</a>
 		</div>
 	</div>
 
